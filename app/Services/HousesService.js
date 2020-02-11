@@ -40,8 +40,12 @@ class HouseService {
       .put(id, update)
       .then(res => {
         //debugger;
-        let house = store.State.houses.find(c => c._id == id);
-        house = { ...house, ...update };
+        store.State.houses.forEach((h, i) => {
+          if (h._id == id) {
+            store.State.houses[i] = new HouseModel({ ...h, ...update })
+          }
+        });
+        // debugger;
         // for (let prop in update) {
         //   house[prop] = update[prop];
         // }
