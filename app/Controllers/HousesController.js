@@ -15,25 +15,35 @@ function _draw() {
 export default class HousesController {
   constructor() {
     store.subscribe("houses", _draw);
+    this.getAllHouses();
   }
 
+  getAllHouses() {
+    HOUSESERVICE.getHouses();
+  }
   addHouse(event) {
     event.preventDefault();
     let formData = event.target;
     // NOTE newcar is an object with all the inputted values from our form
-    let newCar = {
-      make: formData.bedrooms.value,
-      model: formData.imgUrl.value,
+    let newHouse = {
+      bedrooms: formData.bedrooms.value,
+      bathrooms: formData.bathrooms.value,
+      imgUrl: formData.imgUrl.value,
       year: formData.year.value,
       price: formData.price.value,
-      imgUrl: formData.levels.value,
+      levels: formData.levels.value,
       description: formData.description.value
     };
+
     console.log(newHouse);
     HOUSESERVICE.addHouse(newHouse);
     formData.reset();
     // @ts-ignore
     $("#house-form").modal("toggle");
+  }
+
+  delete(id) {
+    HOUSESERVICE.delete(id);
   }
 
 }

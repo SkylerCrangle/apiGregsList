@@ -1,7 +1,8 @@
 export default class HouseModel {
   constructor(data) {
-    this._id = data.id;
+    this._id = data._id;
     this.bedrooms = data.bedrooms;
+    this.bathrooms = data.bathrooms;
     this.imgUrl = data.imgUrl;
     this.levels = data.levels;
     this.year = data.year;
@@ -17,16 +18,16 @@ export default class HouseModel {
       this.imgUrl
       }" alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title">$${this.price} -BDRMS ${this.bedrooms} - ${
-      this.year
-      }</h5>
-              <p class="card-text">${this.description} <b>$${
+              <h5 class="card-title"><b>$${this.price} </b>- Year: ${this.year}</h5>
+              <p class="card-text">${this.description} <br>
+              <b>Levels:</b> ${
       this.levels
-      }</b></p>
+      } <br>
+      <b>Bedrooms:</b> ${this.bedrooms}<br>
+       <b>Baths:</b> ${this.bathrooms}</b><br>
+       </p>
               <button class="btn btn-info" onclick="">Does nothing</button>
-              <button class="btn btn-danger" onclick="app.housesController.delete('${
-      this._id
-      }')">DELETE</button>
+              <button class="btn btn-danger" onclick="app.housesController.delete('${this._id}')">DELETE</button>
             </div>
           </div>
             </div>
