@@ -46,4 +46,10 @@ export default class HousesController {
     HOUSESERVICE.delete(id);
   }
 
+  bid(id, price) {
+    //debugger;
+    HOUSESERVICE.editHouse(id, { price });
+  }
+
+
 }

@@ -35,6 +35,23 @@ class HouseService {
 
   }
 
+  editHouse(id, update) {
+    _api
+      .put(id, update)
+      .then(res => {
+        //debugger;
+        let house = store.State.houses.find(c => c._id == id);
+        house = { ...house, ...update };
+        // for (let prop in update) {
+        //   house[prop] = update[prop];
+        // }
+        store.commit("houses", store.State.houses);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
+
   delete(id) {
     //debugger;
     _api

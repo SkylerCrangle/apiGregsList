@@ -26,7 +26,7 @@ export default class HouseModel {
       <b>Bedrooms:</b> ${this.bedrooms}<br>
        <b>Baths:</b> ${this.bathrooms}</b><br>
        </p>
-              <button class="btn btn-info" onclick="">Does nothing</button>
+              <button class="btn btn-info" onclick="app.housesController.bid('${this._id}', ${this.price + 111})">Bid $111</button>
               <button class="btn btn-danger" onclick="app.housesController.delete('${this._id}')">DELETE</button>
             </div>
           </div>
