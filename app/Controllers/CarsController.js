@@ -60,3 +60,5 @@ export default class CarsController {
     CarsService.deleteCar(id);
   }
 }
+
+//test
